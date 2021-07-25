@@ -1,0 +1,249 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+.ADSLogin{
+    margin-left: auto;
+    margin-right: auto;
+}
+.ADSleft{
+    float: left;
+    text-align: center;
+}
+.ADSderecha{
+    float: right;
+    text-align: center;
+}
+.tdEspecial{
+    text-align: center;
+    background-color: #00e999;
+    color: white;
+    padding: 5px 0;
+}
+.tdMensajeSecu{
+    text-align: center;
+}
+.tdMensaje{
+    text-align: center;
+    background-color: #23b6f4;
+    color: white;
+    padding: 5px 0;
+}
+.imgLogin{
+    text-align: center;
+    padding: 10px 0;
+}
+.btnTacza{
+    color: white;
+    background-color: #00a5f5;
+    padding: 2.5px 96px;
+    border-radius: .3em;
+    border: white;
+    margin-top: 10px;
+}
+.hiperaTaacza{
+    padding-left: 48px;
+    text-decoration: none;
+    color: tomato;
+}
+.tituloPass{
+    padding-top: 10px;
+    size: 1px;
+}
+
+.btncontra{
+    color: white;
+    padding: 2.5px 96px;
+    border-radius: .3em;
+    border: white;
+    margin-top: 10px;
+    background-color: #f63a79;
+}
+.inpPass{
+    width: 250px;
+}
+.tdConfirm{
+    text-align: center;
+    background-color: #e2574c;
+    color: white;
+    padding: 5px 0;
+}
+.btnleft{
+    color: white;
+    padding: 2.5px 35px;
+    border-radius: .3em;
+    border: white;
+    margin-top: 10px;
+    background-color: #8bdd05;
+    float: left;
+}
+.btnrigth{
+    color: white;
+    padding: 2.5px 35px;
+    border-radius: .3em;
+    border: white;
+    margin-top: 10px;
+    float: right;
+    background-color: #e2574c;
+}
+.btnhiper{
+    color: white;
+    padding: 2.5px 35px;
+    border-radius: .3em;
+    border: white;
+    margin-top: 10px;
+    float: right;
+    background-color: #e2574c;
+}
+/*** Footer**/
+footer{
+    background: #111;
+    height: auto;
+    width: auto;
+    padding-top: 40px;
+    margin-top: 400px;
+    color: #fff;
+}
+.LPfooter-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.LPfooter-content h3{
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 3rem;
+}
+.LPfooter-content p{
+    max-width: 500px;
+    max-height: 10px auto;
+    font-size: 14px;
+}
+.LPsocials{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.LPsocials li{
+    margin: 0 10px;
+}
+.LPsocials a{
+    text-decoration: none;
+    color: #fff;
+}
+.LPsocials a i{
+    font-size:  1.1rem;
+    transition: color .4s ease;
+}
+.LPsocials a:hover i{
+    color: #70CAEE;
+}
+.LPfooter-bottom{
+    background: #000;
+    padding: 20px 0;
+    text-align: center;
+}
+.LPfooter-bottom p{
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
+.LPfooter-bottom span{
+    text-transform: uppercase;
+    opacity: .4;
+    font-weight: 200;
+}
+.quitar{
+    background-color: red;
+    color: seashell;
+}
+.producto img{
+    width: 100%;
+    height: 120px;
+    display: block;
+    
+}
+.producto{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 3px;
+    text-align: center;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+.lista_productos{
+    display: grid;
+    grid-gap: 7px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 5px;
+    margin-top: 20px;
+}
+.producto span{
+    font-size: 14px;
+}
+.producto:hover{
+    background-color: rgb(73, 73, 73);
+    border: 1px solid rgb(73, 73, 73);
+}
+.titulo-encabezado-simple{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+#datos{
+    margin-top: 20px;
+}
+.alert-danger{
+    margin-top: 60px;
+}
+
+.sec_total{
+    float: right;
+    display: block;
+}
+.btnBuscarPr{
+    color: white;
+    padding: 5px 20px;
+    border-radius: .3em;
+    border: white;
+    float: right;
+    display: inline;
+    background-color: #f93449;
+}
+.fa-user-alt{
+    margin-right: 15px;
+    font-size: 30px;
+    color: #f93449;
+}
+
+.cancelar{
+    display: inline;
+}
+
+@media print{
+    .usuario, .lista,.btn,.far,.moverimpri,head,.usuario{
+        display: none;
+    }
+    .proforma,#caja{
+        width: 100%;
+    }
+    .caja1,#caja{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .caja1{        
+        width: 40%;
+        margin-bottom: 50px;
+    }
+    input{
+        border: 0;
+    }
+    .sec_total{
+        margin-right: 20px;
+    }
+}
