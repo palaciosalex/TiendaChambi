@@ -137,6 +137,11 @@ class controllerEmitirComprobante{
             include_once("../model/detalleComprobante.php");
             $objDetalleComprobante = new detalleComprobante;
             $res=$objDetalleComprobante->InsertarDetalleComprobante($DetalleComprobante,$idComprobante);
+            if($res="1"){
+                include_once("../model/producto.php");
+                $objProducto = new producto;
+                $res=$objProducto->ActualizarStock($DetalleComprobante);
+            }
             return $res;
         }else{
             return $res;

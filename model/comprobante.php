@@ -3,7 +3,7 @@
     class Comprobante extends conexion{
         public function extraerMontoComprobante(){
             $conn=$this->conectar();
-            $SQLP ="SELECT SUM(MontoTotal) FROM comprobante WHERE fecha= CURRENT_DATE()";
+            $SQLP ="SELECT SUM(MontoTotal) FROM comprobante WHERE Fecha= CURRENT_DATE()";
             $resultado2 = mysqli_query($conn,$SQLP);  
             $this->desconectar($conn); 
             $numero_filas = mysqli_num_rows($resultado2); 
@@ -75,6 +75,60 @@
                     $idcomprobante = $comprobante['idComprobante'];
             } 
             return ($idcomprobante);
+        }
+        public function extraerComprobanteSinReclamo($boleta){
+            $conn=$this->conectar();
+            $SQLP ="SELECT * FROM comprobante WHERE Codigo='$boleta' AND idComprobante NOT IN(SELECT idComprobante FROM reclamo)";
+            $resultado2 = mysqli_query($conn,$SQLP);  
+            $this->desconectar($conn); 
+            $comprobante=array();
+            $numero_filas = mysqli_num_rows($resultado2); 
+            for($i=0;$i < $numero_filas;$i++){
+                $comprobante[$i] =mysqli_fetch_array($resultado2);
+            }            
+            return ($comprobante);
+        }
+        public function ExtraerComprobante($boleta){
+            $conn=$this->conectar();
+            $SQLP ="SELECT * FROM comprobante WHERE Codigo='$boleta'";
+            $resultado2 = mysqli_query($conn,$SQLP);  
+            $this->desconectar($conn); 
+            $numero_filas = mysqli_num_rows($resultado2); 
+            for($i=0;$i < $numero_filas;$i++){
+                $comprobante[$i] =mysqli_fetch_array($resultado2);
+            }            
+            return ($comprobante);               
+        }
+        public function BuscarComprobanteDespacho($boleta){
+            $conn=$this->conectar();
+            $SQLP ="SELECT * FROM comprobante WHERE Codigo = '$boleta' and estadoDespacho='N'";
+            $resulti = mysqli_query($conn,$SQLP);
+            $this->desconectar($conn);
+            $numero_filas = mysqli_num_rows($resulti); 
+            $comprobanteb=array();
+            for($i=0;$i < $numero_filas;$i++){
+                $comprobanteb[$i] =mysqli_fetch_array($resulti);
+            }            
+            return ($comprobanteb);
+
+        }
+        public function cambiarEstado($ID){
+            $conn=$this->conectar();
+            $SQLP ="Update comprobante SET estadoDespacho = 'D' WHERE idComprobante=$ID";
+            $resultado2 = mysqli_query($conn,$SQLP);  
+            $this->desconectar($conn);
+        }
+        
+        public function ExtraerIDComprobante($boleta){
+            $conn=$this->conectar();
+            $SQLP ="SELECT idComprobante FROM comprobante WHERE Codigo='$boleta'";
+            $resultado2 = mysqli_query($conn,$SQLP);  
+            $this->desconectar($conn); 
+            $numero_filas = mysqli_num_rows($resultado2); 
+            for($i=0;$i < $numero_filas;$i++){
+                $comprobante[0] =mysqli_fetch_array($resultado2);
+            }            
+            return ($comprobante[0]['idComprobante']);               
         }
     }
 ?>

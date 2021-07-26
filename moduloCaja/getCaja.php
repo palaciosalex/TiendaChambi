@@ -1,6 +1,6 @@
 <?php
     include_once("controllerCierreCaja.php");
-    $objController = new controllerCierreCaja();
+    $objController = new controllerCierreCaja;
     if(isset($_POST['RecuentoAJAX'])){
         $Recuento = $_POST['RecuentoAJAX'];
         $monto = $_POST['monto_TotalAJAX'];

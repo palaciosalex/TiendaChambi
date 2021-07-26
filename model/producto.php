@@ -36,5 +36,27 @@ include_once("conexion.php");
             }   
             return ($ListaProductos);  
         }
+
+        public function ActualizarStock($DetalleComprobante){  
+
+            $conn=$this->conectar();
+            $filas=count($DetalleComprobante);
+            $res="0";
+            for($i=0;$i<$filas;$i++){
+                $idproducto=$DetalleComprobante[$i]['id_producto'];
+                $cantidad=$DetalleComprobante[$i]['cantidad'];
+                $SQLP ="UPDATE producto 
+                SET    stock = stock-$cantidad
+                WHERE  id=$idproducto";
+                if ($conn->query($SQLP) === TRUE) {
+                    $res ="1";
+                } else {
+                    $res= "Error: " . $SQLP  . "<br>" . $conn->error;
+                    $i=$filas;
+                } 
+            }
+            $this->desconectar($conn);
+            return $res;
+        }
     }
 ?>
