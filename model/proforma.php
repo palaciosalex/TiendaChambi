@@ -46,5 +46,44 @@ include_once("conexion.php");
                     return ($fila['idproforma']);
                 }                 
         }
+
+        public function ExtraerProformas(){
+            $conn=$this->conectar();
+            $SQLP ="SELECT * FROM proforma ORDER BY idproforma DESC LIMIT 20";
+            $resultado = mysqli_query($conn,$SQLP);  
+            $this->desconectar($conn); 
+            $ListaProformas=array();
+            $numero_filas = mysqli_num_rows($resultado); 
+            for($i=0;$i < $numero_filas;$i++){
+                $ListaProformas[$i] =mysqli_fetch_array($resultado);
+            }            
+            return ($ListaProformas);           
+        }
+
+        public function BuscarProformaCodigo($codigoProforma){
+            $conn=$this->conectar();
+            $SQLP ="SELECT * FROM proforma WHERE codigo='$codigoProforma'";
+            $resultado = mysqli_query($conn,$SQLP);  
+            $this->desconectar($conn); 
+            $ListaProformas=array();
+            $numero_filas = mysqli_num_rows($resultado); 
+            for($i=0;$i < $numero_filas;$i++){
+                $ListaProformas[$i] =mysqli_fetch_array($resultado);
+            }            
+            return ($ListaProformas);           
+        }
+
+        public function BuscarProformaFecha($fecha){
+            $conn=$this->conectar();
+            $SQLP ="SELECT * FROM proforma WHERE fecha='$fecha'";
+            $resultado = mysqli_query($conn,$SQLP);  
+            $this->desconectar($conn); 
+            $ListaProformas=array();
+            $numero_filas = mysqli_num_rows($resultado); 
+            for($i=0;$i < $numero_filas;$i++){
+                $ListaProformas[$i] =mysqli_fetch_array($resultado);
+            }            
+            return ($ListaProformas);           
+        }
     }
 ?>

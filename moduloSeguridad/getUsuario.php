@@ -119,6 +119,8 @@ else if(isset($_POST['btnAceptar'])){
 else if(isset($_POST['btnAceptar2'])){
     $respuestaS = trim(strtolower($_POST['respuestaS']));
     $login =  trim(strtolower($_POST['login']));
+
+    
     $resultado_comprobar_respuesta= ComprobarRespuesta($respuestaS);
     if($resultado_comprobar_respuesta==0){
         include_once("../shared/formMensajeSistema.php");

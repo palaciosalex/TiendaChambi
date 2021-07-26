@@ -6,6 +6,7 @@
 
         public function formEmitirProformaShow(){
                 $this -> encabezadoShowSimple("Emitir Proforma");
+                date_default_timezone_set('America/Los_Angeles');
                 ?>
                 
                 <div class="container">
